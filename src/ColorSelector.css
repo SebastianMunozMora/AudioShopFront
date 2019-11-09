@@ -1,0 +1,18 @@
+div{
+    border: white;
+}
+
+#blue,#orange,#white,#green{
+   
+}
+
+#color-palette{
+   width: 120px;
+}
+
+.palette{
+    background: #161f53b9;
+    margin: 5px;
+    padding: 10px;
+    color: white;
+}
