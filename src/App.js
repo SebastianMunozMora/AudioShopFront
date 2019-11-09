@@ -9,8 +9,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-          <Feature image={"tall_case.svg"}/>
           <ColorSelector />
+          
         </div>
         
       </header>
