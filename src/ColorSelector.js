@@ -1,9 +1,29 @@
 import React from 'react';
 import './ColorSelector.css';
 import Feature from './Feature.js'
+
+
 class ColorSelector extends React.Component{
     constructor(props){
         super(props)
+        this.cases = [
+                        {
+                            name: "Tall Style",
+                            image: "tall_case.svg", 
+                        },
+                        {
+                            name: "Classic Style",
+                            image: "monitor_case.svg", 
+                        },
+                        {
+                            name: "Compact Style",
+                            image: "tiny_case.svg", 
+                        },
+                        {
+                            name: "SubWoofer Style",
+                            image: "sub_case.svg", 
+                        },
+                    ]
         this.colors = [
             {
                 name: "Sky",
@@ -37,24 +57,43 @@ class ColorSelector extends React.Component{
                 name: "Lapis",
                 filter: "invert(25%) sepia(80%) saturate(1919%) hue-rotate(220deg) brightness(100%) contrast(88%)",
             },
+            {
+                name: "Wood",
+                filter: "invert(38%) sepia(8%) saturate(1957%) hue-rotate(350deg) brightness(88%) contrast(95%)",
+            },
         ]
         this.state = {
             style: {
                 filter: "invert(67%) sepia(40%) saturate(5895%) hue-rotate(354deg) brightness(90%) contrast(87%)"
-            }
+            },
+            image: this.cases[0].image
         }
     }
     render(){
         return(<div id="color-palette">
-            {this.colors.map((color,key) => {
-                return (<button id={key} class="palette" onClick={() => {this.setState({style: {filter: color.filter}})}}>
-                            <div className="color-plate" style={color} ></div>
-                            <hr></hr>
-                            <div>{color.name}</div>
-                        </button>)
-            })}
+            <h3>Pick a Case and a Color</h3>
+            <div>
+                {this.colors.map((color,key) => {
+                    return (<button id={key} class="palette" onClick={() => {this.setState({style: {filter: color.filter}})}}>
+                                <div className="color-plate" style={color} ></div>
+                                <hr></hr>
+                                <div>{color.name}</div>
+                            </button>)
+                })}
+            </div>
+
+            <Feature image={this.state.image} style = {this.state.style}/>
+            <div>
+                {this.cases.map((box,key) => {
+                    return(<button class="case-button-palette" onClick={() => {this.setState({image: box.image})}}>
+                                <div className="case-plate" ><img className="thumbnail" src={box.image}></img></div>
+                                <hr></hr>
+                                <div>{box.name}</div>
+                            </button>)
+                })}
+            </div>
+
             <br></br>
-            <Feature image="tall_case.svg" style = {this.state.style}/>
         </div>
         )
     }

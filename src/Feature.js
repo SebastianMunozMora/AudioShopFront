@@ -1,6 +1,6 @@
 import React from 'react'
 import './Feature.css'
-import ColorSelector from './ColorSelector.js'
+
 class Feature extends React.Component {
     constructor(props){
         super(props)
