@@ -1,4 +1,14 @@
-.color-filter{
+.image{
+    display: inline-block;
     width:60%;
+    
     /*filter: invert(51%) sepia(44%) saturate(5862%) hue-rotate(203deg) brightness(104%) contrast(92%);*/
 }
+.button{
+    
+    display: inline-block;
+    width:50%;
+    height: 100%;
+    background: transparent;
+}
+

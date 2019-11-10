@@ -11,9 +11,11 @@ class Feature extends React.Component {
    
     render(){
         return( 
-            <div>
-                <img src={this.props.image} className="color-filter" id="case" style = {this.props.style}></img>
-            </div>
+           
+                <img src={this.props.image} className="image" id="case" style = {this.props.style}></img>
+
+      
+            
             )
     }
 

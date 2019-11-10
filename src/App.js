@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1> Design Your Speakers </h1>
-        <div>
+        <div className="cases-view">
           <ColorSelector />
           
         </div>

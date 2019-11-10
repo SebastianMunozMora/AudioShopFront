@@ -6,22 +6,44 @@ import Feature from './Feature.js'
 class ColorSelector extends React.Component{
     constructor(props){
         super(props)
+        this.drivers = [
+            {
+                name: "Three Drivers",
+                image: "tall_driver.svg", 
+            },
+            {
+                name: "Two Drivers",
+                image: "classic_driver.svg", 
+            },
+            {
+                name: "Compact Drivers",
+                image: "compact_driver.svg", 
+            },
+            {
+                name: "Sub Driver",
+                image: "sub_driver.svg", 
+            },
+        ]
         this.cases = [
                         {
                             name: "Tall Style",
-                            image: "tall_case.svg", 
+                            image: "tall_case.svg",
+                            driver:  "tall_driver.svg",
                         },
                         {
                             name: "Classic Style",
                             image: "monitor_case.svg", 
+                            driver:  "classic_driver.svg",
                         },
                         {
                             name: "Compact Style",
                             image: "tiny_case.svg", 
+                            driver:  "compact_driver.svg",
                         },
                         {
                             name: "SubWoofer Style",
                             image: "sub_case.svg", 
+                            driver:  "sub_driver.svg",
                         },
                     ]
         this.colors = [
@@ -66,7 +88,8 @@ class ColorSelector extends React.Component{
             style: {
                 filter: "invert(67%) sepia(40%) saturate(5895%) hue-rotate(354deg) brightness(90%) contrast(87%)"
             },
-            image: this.cases[0].image
+            image: this.cases[0].image,
+            driver: this.cases[0].driver
         }
     }
     render(){
@@ -85,7 +108,7 @@ class ColorSelector extends React.Component{
             <Feature image={this.state.image} style = {this.state.style}/>
             <div>
                 {this.cases.map((box,key) => {
-                    return(<button class="case-button-palette" onClick={() => {this.setState({image: box.image})}}>
+                    return(<button class="case-button-palette" onClick={() => {this.setState({image: box.image, driver: box.driver})}}>
                                 <div className="case-plate" ><img className="thumbnail" src={box.image}></img></div>
                                 <hr></hr>
                                 <div>{box.name}</div>
