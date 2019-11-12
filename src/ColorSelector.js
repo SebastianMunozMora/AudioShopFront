@@ -3,6 +3,7 @@ import './ColorSelector.css';
 import Feature from './Feature.js'
 
 
+
 class ColorSelector extends React.Component{
     constructor(props){
         super(props)
@@ -29,21 +30,29 @@ class ColorSelector extends React.Component{
                             name: "Tall Style",
                             image: "tall_case.svg",
                             driver:  "tall_driver.svg",
+                            description: "Full frequency range, ideal for stereo and mono audio systems to be used as home theater",
+                            price: "$100"
                         },
                         {
                             name: "Classic Style",
                             image: "monitor_case.svg", 
                             driver:  "classic_driver.svg",
+                            description: "Used in stereo systems, put this case on your computer desk",
+                            price: "$60"
                         },
                         {
                             name: "Compact Style",
                             image: "tiny_case.svg", 
                             driver:  "compact_driver.svg",
+                            description: "Can be used anywhere in your home, take it with you wherever you go",
+                            price: "$30"
                         },
                         {
                             name: "SubWoofer Style",
                             image: "sub_case.svg", 
                             driver:  "sub_driver.svg",
+                            description: "Low frequency range, mainly used as an aditional speaker in your stereo or surround audio system",
+                            price: "$50"
                         },
                     ]
         this.colors = [
@@ -89,7 +98,14 @@ class ColorSelector extends React.Component{
                 filter: "invert(67%) sepia(40%) saturate(5895%) hue-rotate(354deg) brightness(90%) contrast(87%)"
             },
             image: this.cases[0].image,
-            driver: this.cases[0].driver
+            driver: this.cases[0].driver,
+            description: this.cases[0].description,
+            item: {
+                case: this.cases[0],
+                color: this.colors[0].name
+            },
+            name: this.cases[0].name,
+            price: this.cases[0].price
         }
     }
     render(){
@@ -105,10 +121,11 @@ class ColorSelector extends React.Component{
                 })}
             </div>
 
-            <Feature image={this.state.image} style = {this.state.style}/>
+            <Feature image={this.state.image} style = {this.state.style} desc={this.state.description} title={this.state.name} price={this.state.price}/>
+            
             <div>
                 {this.cases.map((box,key) => {
-                    return(<button class="case-button-palette" onClick={() => {this.setState({image: box.image, driver: box.driver})}}>
+                    return(<button class="case-button-palette" onClick={() => {this.setState({image: box.image, driver: box.driver, description: box.description, name: box.name, price: box.price})}}>
                                 <div className="case-plate" ><img className="thumbnail" src={box.image}></img></div>
                                 <hr></hr>
                                 <div>{box.name}</div>
