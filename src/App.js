@@ -19,6 +19,7 @@ class App extends React.Component {
           <div className="cases-view">
             <Steps onClickNext={()=>{
 
+
               {
                 this.state.currentState != 2 ? this.setState({currentState: this.state.currentState + 1}) : this.setState({currentState: this.state.currentState})
               }
@@ -36,6 +37,27 @@ class App extends React.Component {
         </header>
       </div>
     );
+
+
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      
+    }
+  }
+  render (){
+    return(
+      <div className="App">
+        <header className="App-header">
+          <h1> Design Your Speakers </h1>
+          <div className="cases-view">
+            <ColorSelector />
+                        
+          </div>
+        </header>
+      </div>
+    )
   }
 }
 
