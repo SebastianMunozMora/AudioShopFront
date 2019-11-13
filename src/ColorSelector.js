@@ -103,9 +103,9 @@ class ColorSelector extends React.Component{
             currentDriver: this.drivers[0],
             description: this.cases[0].description,
             items: [{
-                feature: this.cases[0],
-                color: this.colors[0],
-            }] ,
+                feature: {},
+                color: {}
+            }],
             currentColor: this.colors[0],
             name: this.cases[0].name,
             price: this.cases[0].price,
@@ -140,23 +140,26 @@ class ColorSelector extends React.Component{
                 })}
             </div>
             
-            <Feature image={this.props.state === 0 ? this.state.image: this.state.driver} style = {this.state.style} desc={this.state.description} title={this.state.name} price={this.state.price}/>
             <button className="basket-button" onClick={()=> {this.checkItem() 
                                                             this.addItem({feature: this.state.currentItem, color: this.state.currentColor})}}>
                 <img src="./cart.svg" className="add-img"></img>
             </button>
+            <Feature image={this.props.state === 0 ? this.state.image: this.state.driver} style = {this.state.style} desc={this.state.description} title={this.state.name} price={this.state.price}/>
              
             <div>
                 {this.cases.map((box,key) => {
-                    return(<button className="case-button-palette" onClick={() => {this.setState({image: box.image, driver: box.driver, description: box.description, name: box.name, price: box.price, currentDriver: this.drivers[key], case: this.cases[key]})}}>
+                    return(<button className="case-button-palette" onClick={() => {this.setState({image: box.image, driver: box.driver, description: box.description, name: box.name, price: box.price, currentDriver: this.drivers[key], case: this.cases[key]})
+                                                                                    this.checkItem()}}>
                                 <div className="case-plate" ><img className="thumbnail" src={box.image}></img></div>
                                 <hr></hr>
                                 <div>{box.name}</div>
+                                
                             </button>)
                 })}
+                {console.log(this.state)}
             </div>
 
-            <Basket items={this.state.items} />
+            <Basket items={this.state.items} onClick={()=>{this.setState()}} />
             <br></br>
         </div>
         )

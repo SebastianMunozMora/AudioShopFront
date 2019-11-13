@@ -33,7 +33,9 @@ div{
 }
 .thumbnail{
     filter: invert(95%) sepia(7%) saturate(346%) hue-rotate(325deg) brightness(104%) contrast(92%);
-    width: 200px
+    -webkit-mask-image: "./grit.png";
+    mask-image: "./grit.png";
+    width: 150px
     
 }
 .basket-button{
