@@ -34,5 +34,12 @@ div{
 .thumbnail{
     filter: invert(95%) sepia(7%) saturate(346%) hue-rotate(325deg) brightness(104%) contrast(92%);
     width: 200px
-   
+    
+}
+.basket-button{
+    background: #161f53b9;
+}
+.add-img{
+    width: 50px;
+    filter: invert(95%) sepia(7%) saturate(346%) hue-rotate(325deg) brightness(104%) contrast(92%);
 }

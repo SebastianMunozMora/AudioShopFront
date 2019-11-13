@@ -15,14 +15,14 @@ class Steps extends React.Component {
     render(){
         return(<div className="all-steps">
             <button onClick={this.props.onClickBack} className="steps-button">
-                <h2>Previous</h2>
+                <h3>Previous</h3>
             </button>
             <button className="steps">
                 <h2>{"Choose Your " + this.step[this.props.state].name }</h2>
             </button>
                 {console.log(this.props.state)}
             <button onClick = {this.props.onClickNext } className="steps-button">
-                <h2>Next</h2>
+                <h3>Next</h3>
             </button>
             </div>)
     }

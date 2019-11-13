@@ -1,7 +1,7 @@
 import React from 'react';
 import './ColorSelector.css';
 import Feature from './Feature.js'
-
+import Basket from './Basket.js'
 
 
 class ColorSelector extends React.Component{
@@ -98,40 +98,57 @@ class ColorSelector extends React.Component{
                 filter: "invert(67%) sepia(40%) saturate(5895%) hue-rotate(354deg) brightness(90%) contrast(87%)"
             },
             image: this.cases[0].image,
+            case: this.cases[0],
             driver: this.cases[0].driver,
+            currentDriver: this.drivers[0],
             description: this.cases[0].description,
-            item: {
-                case: this.cases[0],
-                color: this.colors[0].name
-            },
+            items: [{
+                feature: this.cases[0],
+                color: this.colors[0],
+            }] ,
+            currentColor: this.colors[0],
             name: this.cases[0].name,
-            price: this.cases[0].price
+            price: this.cases[0].price,
+            currentItem: {}
+        }
+    }
+    addItem(item){
+        let items = this.state.items.slice()
+        items.push(item)
+        this.setState({items: items})
+        console.log(this.state.items)
+    }
+
+    checkItem(){
+        if(this.props.state === 0){
+            this.setState({currentItem: this.state.case})
+        }else{
+            this.setState({currentItem: this.state.currentDriver})
         }
     }
     render(){
+
         return(<div id="color-palette">
             
             <div>
                 {this.colors.map((color,key) => {
-                    return (<button id={key} class="palette" onClick={() => {this.setState({style: {filter: color.filter}})}}>
+                    return (<button className="palette" onClick={() => {this.setState({style: {filter: color.filter }, currentColor: this.colors[key]})}}>
                                 <div className="color-plate" style={color} ></div>
                                 <hr></hr>
                                 <div>{color.name}</div>
                             </button>)
                 })}
             </div>
-
             
-            
-            <Feature image={this.props.state === 0 ? this.state.image: this.state.driver} style = {this.state.style}/>
-
-
-            <Feature image={this.state.image} style = {this.state.style} desc={this.state.description} title={this.state.name} price={this.state.price}/>
-
-            
+            <Feature image={this.props.state === 0 ? this.state.image: this.state.driver} style = {this.state.style} desc={this.state.description} title={this.state.name} price={this.state.price}/>
+            <button className="basket-button" onClick={()=> {this.checkItem() 
+                                                            this.addItem({feature: this.state.currentItem, color: this.state.currentColor})}}>
+                <img src="./cart.svg" className="add-img"></img>
+            </button>
+             
             <div>
                 {this.cases.map((box,key) => {
-                    return(<button class="case-button-palette" onClick={() => {this.setState({image: box.image, driver: box.driver, description: box.description, name: box.name, price: box.price})}}>
+                    return(<button className="case-button-palette" onClick={() => {this.setState({image: box.image, driver: box.driver, description: box.description, name: box.name, price: box.price, currentDriver: this.drivers[key], case: this.cases[key]})}}>
                                 <div className="case-plate" ><img className="thumbnail" src={box.image}></img></div>
                                 <hr></hr>
                                 <div>{box.name}</div>
@@ -139,6 +156,7 @@ class ColorSelector extends React.Component{
                 })}
             </div>
 
+            <Basket items={this.state.items} />
             <br></br>
         </div>
         )
