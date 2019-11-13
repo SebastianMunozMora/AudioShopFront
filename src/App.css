@@ -24,3 +24,8 @@
 .cases-view{
   width: 60%
 }
+.banner{
+  clip: rect(100px,1000px,150px,0px);
+  
+  z-index: 0;
+}

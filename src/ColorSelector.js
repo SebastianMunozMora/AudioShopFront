@@ -94,7 +94,7 @@ class ColorSelector extends React.Component{
     }
     render(){
         return(<div id="color-palette">
-            <h3>Pick a Case and a Color</h3>
+            
             <div>
                 {this.colors.map((color,key) => {
                     return (<button id={key} class="palette" onClick={() => {this.setState({style: {filter: color.filter}})}}>
@@ -104,8 +104,10 @@ class ColorSelector extends React.Component{
                             </button>)
                 })}
             </div>
-
-            <Feature image={this.state.image} style = {this.state.style}/>
+            
+            
+            <Feature image={this.props.state === 0 ? this.state.image: this.state.driver} style = {this.state.style}/>
+            
             <div>
                 {this.cases.map((box,key) => {
                     return(<button class="case-button-palette" onClick={() => {this.setState({image: box.image, driver: box.driver})}}>
