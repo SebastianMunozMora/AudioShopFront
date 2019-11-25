@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/AudioShopFront/static/css/main.67610f05.chunk.css",
+    "main.js": "/AudioShopFront/static/js/main.4c0c10f2.chunk.js",
+    "main.js.map": "/AudioShopFront/static/js/main.4c0c10f2.chunk.js.map",
+    "runtime-main.js": "/AudioShopFront/static/js/runtime-main.9e9af7ae.js",
+    "runtime-main.js.map": "/AudioShopFront/static/js/runtime-main.9e9af7ae.js.map",
+    "static/js/2.fec16120.chunk.js": "/AudioShopFront/static/js/2.fec16120.chunk.js",
+    "static/js/2.fec16120.chunk.js.map": "/AudioShopFront/static/js/2.fec16120.chunk.js.map",
+    "index.html": "/AudioShopFront/index.html",
+    "precache-manifest.7e09b7c0860d376c13d431de38d42157.js": "/AudioShopFront/precache-manifest.7e09b7c0860d376c13d431de38d42157.js",
+    "service-worker.js": "/AudioShopFront/service-worker.js",
+    "static/css/main.67610f05.chunk.css.map": "/AudioShopFront/static/css/main.67610f05.chunk.css.map",
+    "static/media/logo.svg": "/AudioShopFront/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9e9af7ae.js",
+    "static/js/2.fec16120.chunk.js",
+    "static/css/main.67610f05.chunk.css",
+    "static/js/main.4c0c10f2.chunk.js"
+  ]
+}
